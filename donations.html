@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gift Registry & Donations - Henry & Ruby</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        .donate-section {
+            max-width: 500px;
+            margin: 40px auto 0;
+            background: #f8ecee;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #0001;
+            padding: 34px 20px 26px;
+            text-align: center;
+        }
+        .donate-section h2 {
+            color: #7a3b3f;
+            margin-bottom: 14px;
+        }
+        .donate-details {
+            font-size: 1.15em;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 18px;
+            margin: 20px 0 16px 0;
+            border-left: 6px solid #1d5c46;
+        }
+        .donate-details span {
+            font-weight: bold;
+        }
+        .copy-btn {
+            background: #1d5c46;
+            color: #fff;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 6px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover {
+            background: #a75d67;
+        }
+        .donate-success {
+            color: green;
+            font-size: 1em;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay">
+            <div class="menu-container"><button id="menu-toggle" class="menu-toggle">☰</button></div>
+            <h1>Gift Registry & Donations</h1>
+            <div class="countdown" id="timer">
+                <div class="time-segment">
+                    <div class="number" id="days">00</div>
+                    <div class="label">Days</div>
+                </div>
+                <div class="time-segment">
+                    <div class="number" id="hours">00</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div class="time-segment">
+                    <div class="number" id="minutes">00</div>
+                    <div class="label">Minutes</div>
+                </div>
+                <div class="time-segment">
+                    <div class="number" id="seconds">00</div>
+                    <div class="label">Seconds</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="story.html">Our Story</a></li>
+                    <li><a href="details.html">Wedding Details</a></li>
+                    <li><a href="program.html">Wedding Program</a></li>
+                    <li><a href="rsvp.html">RSVP</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="travel.html">Travel & Lodging</a></li> -->
+                    <li><a href="donations.html" class="active">Gift Registry & Donations</a></li>
+                    <!-- <li><a href="messages.html">Messages</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="donate-section">
+            <h2>Thank you for celebrating with us!</h2>
+            <p>Your love and prayers are the greatest gifts we could ask for.<br>
+               If you wish to send a monetary gift or donation, kindly use the account details below:</p>
+            <div class="donate-details">
+                <span>Account Name:</span> Henry Chukwujekwu Ezeobi<br>
+                <span>Account Number:</span> <span id="acct-num">0701748852</span> <button class="copy-btn" onclick="copyAcct()">Copy</button><br>
+                <span>Bank Name:</span> Access Bank
+            </div>
+            <!-- If you add Flutterwave/PayPal etc, put a button below -->
+            <!-- <a href="https://your-payment-link" class="button burgundy" style="margin-top: 12px;">Donate Online</a> -->
+            <div id="copy-success" class="donate-success"></div>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+    <script>
+        function copyAcct() {
+            const acct = document.getElementById('acct-num').innerText;
+            navigator.clipboard.writeText(acct);
+            document.getElementById('copy-success').innerText = "Account number copied!";
+            setTimeout(()=>document.getElementById('copy-success').innerText = "", 2500);
+        }
+    </script>
+</body>
+</html>

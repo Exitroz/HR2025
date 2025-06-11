@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RSVP - Henry & Ruby</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        .rsvp-form {
+            max-width: 440px;
+            margin: 40px auto 32px;
+            background: #f8ecee;
+            border-radius: 12px;
+            padding: 34px 22px;
+            box-shadow: 0 2px 8px #0001;
+        }
+        .rsvp-form label {
+            display: block;
+            margin-bottom: 6px;
+            color: #7a3b3f;
+        }
+        .rsvp-form input, .rsvp-form select {
+            width: 100%;
+            padding: 9px 12px;
+            margin-bottom: 16px;
+            border-radius: 6px;
+            border: 1px solid #e6cad2;
+            font-family: inherit;
+            font-size: 1em;
+        }
+        .rsvp-form button {
+            background: #1d5c46;
+            color: #fff;
+            border: none;
+            padding: 10px 32px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .rsvp-form button:hover {
+            background: #a75d67;
+        }
+        .rsvp-response {
+            margin: 10px 0 0 0;
+            color: green;
+            font-size: 1.1em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay">
+            <div class="menu-container"><button id="menu-toggle" class="menu-toggle">☰</button></div>
+            <h1>RSVP</h1>
+            <div class="countdown" id="timer">
+                <div class="time-segment">
+                    <div class="number" id="days">00</div>
+                    <div class="label">Days</div>
+                </div>
+                <div class="time-segment">
+                    <div class="number" id="hours">00</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div class="time-segment">
+                    <div class="number" id="minutes">00</div>
+                    <div class="label">Minutes</div>
+                </div>
+                <div class="time-segment">
+                    <div class="number" id="seconds">00</div>
+                    <div class="label">Seconds</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="story.html">Our Story</a></li>
+                    <li><a href="details.html">Wedding Details</a></li>
+                    <li><a href="program.html">Wedding Program</a></li>
+                    <li><a href="rsvp.html" class="active">RSVP</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="travel.html">Travel & Lodging</a></li> -->
+                    <li><a href="donations.html">Gift Registry & Donations</a></li>
+                    <!-- <li><a href="messages.html">Messages</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form class="rsvp-form" id="rsvp-form">
+            <label for="rsvp-name">Full Name</label>
+            <input type="text" id="rsvp-name" required>
+
+            <label for="rsvp-guests">Number of Guests</label>
+            <input type="number" id="rsvp-guests" min="1" max="10" value="1" required>
+
+            <label for="rsvp-attend">Will you attend?</label>
+            <select id="rsvp-attend" required>
+                <option value="">Select</option>
+                <option value="Yes, I/we will attend">Yes, I/we will attend</option>
+                <option value="No, I/we cannot attend">No, I/we cannot attend</option>
+            </select>
+
+            <label for="rsvp-contact">Contact (email or phone)</label>
+            <input type="text" id="rsvp-contact" required>
+
+            <button type="submit">Send RSVP</button>
+            <div class="rsvp-response" id="rsvp-response"></div>
+        </form>
+    </main>
+    <script src="js/script.js"></script>
+    <script>
+    // Use your new RSVP Apps Script endpoint
+    const rsvpEndpoint = "https://script.google.com/macros/s/AKfycbyUWRRv8ytKX4qLFDMJXEB_pevr9irNlcujTPyEjm-dJkXDmUu3Atz-bbKMmDqfc0HQ4A/exec";
+    const rsvpForm = document.getElementById('rsvp-form');
+    const rsvpResponse = document.getElementById('rsvp-response');
+    rsvpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(rsvpEndpoint, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: document.getElementById('rsvp-name').value,
+                guests: document.getElementById('rsvp-guests').value,
+                attend: document.getElementById('rsvp-attend').value,
+                contact: document.getElementById('rsvp-contact').value
+            })
+        });
+        rsvpForm.reset();
+        rsvpResponse.innerHTML = "Thank you! Your RSVP was sent.";
+        setTimeout(() => rsvpResponse.innerHTML = "", 3500);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+https://script.google.com/macros/s/AKfycby2BjBLeINfgTYC2F3HhIT951CJ0iGx2nu2329crzzILVEVN-YETd9RGsPUWg6kwo3bqw/exec
+
+deployment ID
+AKfycbx3p4ZqmyUhSumLmIdlEBeEY429toyXoajZePOLqst4cIPGrXr8CQpMFEng1YR857XGqA
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTxNcAawyW3aF27MMHMS0IQM3_G2YZ2_TSRSwIR-C3IM_EZ1SL5AvHeIob8z_cuifNJHHnqYmSAFISf/pubhtml
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTxNcAawyW3aF27MMHMS0IQM3_G2YZ2_TSRSwIR-C3IM_EZ1SL5AvHeIob8z_cuifNJHHnqYmSAFISf/pub?output=csv

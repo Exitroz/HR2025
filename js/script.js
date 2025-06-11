@@ -28,30 +28,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Messaging
-// Message handling
-    const form = document.getElementById('message-form');
-    const messagesDiv = document.getElementById('messages-list');
-    let messages = JSON.parse(localStorage.getItem('guestbook-messages') || "[]");
-
-    function showMessages() {
-        messagesDiv.innerHTML = messages.length
-            ? messages.map(m => 
-                `<div class="guest-msg">
-                    <strong>${m.name}</strong><br>
-                    <span>${m.text}</span>
-                </div>`
-              ).join("")
-            : '<div class="messages-placeholder"><em>No messages yet—be the first to leave one!</em></div>';
-    }
-    showMessages();
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('guest-name').value.trim() || "Anonymous";
-        const text = document.getElementById('guest-message').value.trim();
-        if (!text) return;
-        messages.push({ name, text });
-        localStorage.setItem('guestbook-messages', JSON.stringify(messages));
-        form.reset();
-        showMessages();
-    });
