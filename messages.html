@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Leave a Message - Henry & Ruby</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay">
+            <div class="menu-container"><button id="menu-toggle" class="menu-toggle">☰</button></div>
+            <h1>Leave a Message</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="story.html">Our Story</a></li>
+                    <li><a href="details.html">Wedding Details</a></li>
+                    <li><a href="program.html">Wedding Program</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="travel.html">Travel & Lodging</a></li>
+                    <li><a href="rsvp.html">RSVP</a></li>
+                    <li><a href="donations.html">Gift Registry & Donations</a></li>
+                    <!-- <li><a href="messages.html" class="active">Messages</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+    <form class="message-form" id="message-form">
+        <label for="guest-name">Your Name</label>
+        <input type="text" id="guest-name" required>
+        <label for="guest-message">Message</label>
+        <textarea id="guest-message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <div class="messages-list" id="messages-list">
+        <!-- Messages will appear here -->
+    </div>
+</main>
+<script src="js/script.js"></script>
+
+</body>
+</html>
